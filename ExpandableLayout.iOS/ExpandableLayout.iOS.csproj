@@ -134,7 +134,4 @@
       <Name>ExpandableLayout</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\expand_icon.png" />
-  </ItemGroup>
 </Project>

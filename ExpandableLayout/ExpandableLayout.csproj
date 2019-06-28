@@ -20,4 +20,13 @@
   <ItemGroup>
     <Compile Remove="ExpandableLayout.xaml.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Icons\expand_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\expand_icon.png" />
+  </ItemGroup>
 </Project>

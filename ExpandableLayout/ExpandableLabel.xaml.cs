@@ -12,6 +12,8 @@ namespace ExpandableLayout
         public ExpandableLabel()
         {
             InitializeComponent();
+            expandIcon.Source = ImageSource.FromResource("ExpandableLayout.Icons.expand_icon.png");
+
             ExpandableLayout.HeightRequest = 0;
             ExpandableText.Text = Text;
             TitleText.Text = Title;
@@ -56,42 +58,51 @@ namespace ExpandableLayout
                                     returnType: typeof(string),
                                     declaringType: typeof(ExpandableLabel),
                                     defaultValue: default(string));
-
+        public static readonly BindableProperty TitleTextColorProperty = BindableProperty.Create(
+                                    propertyName: "TitleTextColor",
+                                    returnType: typeof(Color),
+                                    declaringType: typeof(ExpandableLabel),
+                                    defaultValue: default(Color)
+                                    );
+        public static readonly BindableProperty TitleBackgroundColorProperty = BindableProperty.Create(
+                                    propertyName: "TitleBackgroundColor",
+                                    returnType: typeof(Color),
+                                    declaringType: typeof(ExpandableLabel),
+                                    defaultValue: Color.Blue
+                                    );
+        
         public string Title
         {
-            get
-            {
-                return (string)GetValue(TitleProperty);
-            }
-            set
-            {
-                SetValue(TitleProperty, value);
-            }
+            get => (string)GetValue(TitleProperty);
+            set => SetValue(TitleProperty, value);
         }
-
         public string Text
         {
-            get
-            {
-                return (string)GetValue(TextProperty);
-            }
-            set
-            {
-                SetValue(TextProperty, value);
-            }
+            get => (string)GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
+        }
+        public Color TitleTextColor
+        {
+            get => (Color)GetValue(TitleTextColorProperty);
+            set => SetValue(TitleTextColorProperty, value);
+        }
+        public Color TitleBackgroundColor
+        {
+            get => (Color)GetValue(TitleBackgroundColorProperty);
+            set => SetValue(TitleBackgroundColorProperty, value);
         }
 
         protected override void OnPropertyChanged(string propertyName = null)
         {
             base.OnPropertyChanged(propertyName);
             if (propertyName == TitleProperty.PropertyName)
-            {
                 TitleText.Text = Title;
-            }
             else if (propertyName == TextProperty.PropertyName)
-            {
                 ExpandableText.Text = Text;
-            }
+            else if (propertyName == TitleTextColorProperty.PropertyName)
+                TitleText.TextColor = TitleTextColor;
+            else if (propertyName == TitleBackgroundColorProperty.PropertyName)
+                Header.BackgroundColor = TitleBackgroundColor;
         }
 
     }
