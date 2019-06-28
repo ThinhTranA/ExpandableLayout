@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ExpandableLayout.ExpandableLayout">
+    <ContentView.Content>
+        <StackLayout
+            Padding="0"
+            BackgroundColor="White"
+            Spacing="0">
+            <StackLayout
+                x:Name="Header"
+                Padding="10"
+                BackgroundColor="Accent"
+                HorizontalOptions="FillAndExpand">
+                <Label x:Name="TitleText" Text="This is the title" />
+            </StackLayout>
+            <StackLayout
+                x:Name="ExpandableLayout"
+                Padding="0"
+                HorizontalOptions="FillAndExpand">
+                <StackLayout x:Name="ExpandableContent" Padding="10">
+                    <Label x:Name="ExpandableText" Text="This is the expandable text" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
